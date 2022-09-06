@@ -1,4 +1,4 @@
-/*
+
 window.confirm("Responde marcando el número de la opción que quieras responder")
 
 
@@ -40,5 +40,5 @@ else{
     alert(":( Tu respuesta es incorrecta")
 }
 
-*/
+
 
