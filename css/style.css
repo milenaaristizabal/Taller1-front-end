@@ -22,7 +22,12 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    background-image: url(../img/fondo1.jpg);
 }
+.container{
+    display: flex;
+    justify-content: center;
+   }
 
 @media only screen and (min-width: 320px) {
 
@@ -82,10 +87,6 @@ body {
         justify-content: center;
         transition: transform .6s ease;
     }
-
-    .item {
-        padding: 1rem;
-    }
 #fondo{
     
     display: flex;
@@ -131,6 +132,7 @@ body {
         font-size: 1.3em;
         padding: 1rem;
     }
+    
 
     .logo {
         padding: 1rem;
@@ -154,10 +156,6 @@ body {
         transform: translateY(0);
     }
 
-    .navbar-button {
-        background-color: var(--azuloscuro);
-    }
-
     nav {
         display: flex;
         flex-direction: row;
@@ -165,7 +163,7 @@ body {
     }
 
     nav a:hover {
-        background-color: #0B3860;
+        background-color: #94b8d8;
         color: var(--blanco);
         width: 100%;
     }
