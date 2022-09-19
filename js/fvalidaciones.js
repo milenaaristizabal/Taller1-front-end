@@ -2,28 +2,34 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-Z0-9\_\-]{2,40}$/, // Letras, numeros, guion y guion_bajo
+	apellido: /^[a-zA-ZÀ-ÿ\s]{2,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    fnacimiento: /^((19|[0-9])[0-9]{2}|(20|[0-9])[0-2]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
+	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    ndocumento: /^\d{7,14}$/ // 7 a 14 numeros.
+	
 }
 
 const campos = {
-	usuario: false,
 	nombre: false,
+	apellido: false,
 	password: false,
 	correo: false,
-	telefono: false
+    fnacimiento: false,
+	telefono: false,
+    ndocumento: false,
+    fnacimiento: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
-		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
+		break;
+		case "apellido":
+			validarCampo(expresiones.apellido, e.target, 'apellido');
 		break;
 		case "password":
 			validarCampo(expresiones.password, e.target, 'password');
@@ -35,8 +41,17 @@ const validarFormulario = (e) => {
 		case "correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
 		break;
+        case "fnacimiento":
+			validarCampo(expresiones.fnacimiento, e.target, 'fnacimiento');
+		break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
+		break;
+		case "ndocumento":
+			validarCampo(expresiones.ndocumento, e.target, 'ndocumento');
+		break;
+        case "fnacimiento":
+			validarCampo(expresiones.fnacimiento, e.target, 'fnacimiento');
 		break;
 	}
 }
@@ -89,7 +104,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+	if(campos.nombre && campos.apellido && campos.password && campos.correo && campos.fnacimiento && campos.telefono && campos.ndocumento && campos.ndocumento && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
